@@ -14,7 +14,7 @@ Here are the steps used to build this app.
 
 * Add a route to `routes.rb` that associates `/politicians` to the politicans controller and the `index` action (method). The route looks like this: `get 'politicians', to: 'politicians#index'`
 
-* Fill in the index method in the politicians controller so we'll have an instance variable that points to a list of all politicians in the database. 
+* Fill in the index method in the politicians controller so we'll have an instance variable that points to a list of all politicians in the database.
 
 ```
 def index
@@ -25,7 +25,7 @@ end
 * Use an `each` loop in the `politicians/index.html.erb` template to dynamically build a list of all the politicians that our `@politicians` instance variable points to.
 
 ```
-h2>Dynmamic list of Politicians using each loop</h2>
+h2>Dynamic list of Politicians using each loop</h2>
 <ul>
   <% @politicians.each do |p| %>
     <li>
@@ -35,7 +35,7 @@ h2>Dynmamic list of Politicians using each loop</h2>
 </ul>
 ```
 
-* Go ahead and start your server with `rails server` and then load `http://localhost:3000/politicians` in your browser. You will see a not-so-exciting blank page. 
+* Go ahead and start your server with `rails server` and then load `http://localhost:3000/politicians` in your browser. You will see a not-so-exciting blank page.
 
 
 * Now we just need to add some data. Start rails console with `rails console` and then run the following commands one line at a time.
@@ -44,12 +44,12 @@ h2>Dynmamic list of Politicians using each loop</h2>
 h = Politician.new
 h.name = "Hillary Clinton"
 h.party = "Democrat"
-h.save 
+h.save
 
 t = Politician.new
 t.name = "Donald Trump"
 t.party = "Republican"
-t.save 
+t.save
 ```
 
 * Now reload your browser at `http://localhost:3000/politicians` and you should see two politicians in your list!
