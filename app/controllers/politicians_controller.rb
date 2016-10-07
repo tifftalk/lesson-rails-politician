@@ -13,7 +13,6 @@ class PoliticiansController < ApplicationController
 
   def create
     @politician = Politician.create(politician_params)
-    debugger
     redirect_to politicians_path
   end
 
