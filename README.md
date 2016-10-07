@@ -25,7 +25,7 @@ end
 * Use an `each` loop in the `politicians/index.html.erb` template to dynamically build a list of all the politicians that our `@politicians` instance variable points to.
 
 ```
-h2>Dynamic list of Politicians using each loop</h2>
+<h2>Dynamic list of Politicians using each loop</h2>
 <ul>
   <% @politicians.each do |p| %>
     <li>
