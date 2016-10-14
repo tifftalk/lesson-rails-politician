@@ -59,7 +59,7 @@ t.save
 
 ## Adding Associations
 
-* Add a new StaffPerson model `rails g model staff_person name:string references:politician
+* Add a new StaffPerson model `rails g model staff_person name:string politician:references
 `
 * Add a StaffPerson in Rails Console, and associate them to a Politician
 
