@@ -11,4 +11,12 @@ class PoliticianTest < ActiveSupport::TestCase
 
     assert_equal 1, @hillary.staff_people.size
   end
+
+  test "can add bill" do
+    bill = Bill.new(title: "National 10pm Cat Curfew")
+    @hillary.bills << bill
+    @hillary.save
+
+    assert_equal 1, bill.politicians.size
+  end
 end
