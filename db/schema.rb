@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005173031) do
+ActiveRecord::Schema.define(version: 20161014182131) do
+
+  create_table "bills", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "politician_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["politician_id"], name: "index_bills_on_politician_id"
+  end
 
   create_table "politicians", force: :cascade do |t|
     t.string   "name"
     t.string   "party"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "staff_people", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "politician_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["politician_id"], name: "index_staff_people_on_politician_id"
   end
 
 end
