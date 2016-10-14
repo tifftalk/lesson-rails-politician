@@ -1,6 +1,6 @@
 # Demo Rails App
 
-Here are the steps used to build this app.
+## Creating the App and Adding the Politician Resource
 
 * Create the app: `rails new politics`
 
@@ -55,3 +55,36 @@ t.save
 * Now reload your browser at `http://localhost:3000/politicians` and you should see two politicians in your list!
 
 * View the source of the page in your browser, and try to find the lines that were generated within your each loop.
+
+
+## Adding Associations
+
+* Add a new StaffPerson model `rails g model staff_person name:string references:politician
+`
+* Add a StaffPerson in Rails Console, and associate them to a Politician
+
+```
+p = Politician.create(name: "Hillary Clinton", party: "democrate")
+sp = StaffPerson.new(name: "Robby Mook")
+sp.politician = p
+sp.save 
+```
+
+* Add a Bill model that will have a many-to-many association with Politicians `rails g model bill title:string`
+
+* Create a migration for linking Bills to Politicians: 
+`rails g migration CreateBillsPoliticians bill:references politician:references`
+
+* Customize the migration before running it
+
+* Add a test to prove that Bills can be associated with Politicians
+
+```
+test "can add bill" do
+	bill = Bill.new(title: "National 10pm Cat Curfew")
+	@hillary.bills << bill
+	@hillary.save
+	
+	assert_equal 1, bill.politicians.size
+end
+```
