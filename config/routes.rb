@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'politicians', to: 'politicians#index'
   get 'politicians/:id', to: 'politicians#show'
 
